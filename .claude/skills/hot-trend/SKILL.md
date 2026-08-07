@@ -5,7 +5,7 @@ description: "Rapidly scans the global (English) internet for what's trending ri
 
 # Hot Trend —— 热点选品雷达
 
-> 定位：vend 的**上游选品环节**。本 skill 只负责「调研 → 筛选 → 锁定唯一热点 → 设计可直接落地的数字产品方案」，**不执行生产与销售**。方案落盘后停下，由用户决定是否调用 `/vend` 执行。
+> 定位：下游的**上游选品环节**。本 skill 只负责「调研 → 筛选 → 锁定唯一热点 → 设计可直接落地的数字产品方案」，**不执行生产与销售**。方案落盘后停下，由用户决定是否交给下游执行（Wright 生产 / Buzz 引流 / Vendy 成交）。
 
 ## 触发条件
 
@@ -39,7 +39,7 @@ description: "Rapidly scans the global (English) internet for what's trending ri
 - 数据源：英文平台热点榜（详见下节）
 - 变现渠道：Gumroad、Payhip、Payloadz、Lemonsqueezy 等国际数字产品平台
 - 产品语言：英文（产品文案、关键词、上架信息均用英文）
-- 收款：与 vend 配置一致（可提现到 HK / CN 银行）
+- 收款：与下游 Vendy 的配置一致（可提现到 HK / CN 银行）
 
 ## 数据源（全球英文热点榜）
 
@@ -122,7 +122,7 @@ description: "Rapidly scans the global (English) internet for what's trending ri
 
 ### 阶段 5 · 输出可落地方案
 
-把方案写入文件（见「输出文件」），向用户**简报唯一热点 + 一句话理由 + 数据依据**，然后**停下**，提示「确认后可调用 `/vend` 执行生产与销售」。不要自动进入 vend。
+把方案写入文件（见「输出文件」），向用户**简报唯一热点 + 一句话理由 + 数据依据**，然后**停下**，提示「确认后可交给下游执行：Wright 生产、Buzz 引流、Vendy 成交」。不要代替下游执行。
 
 ## 五维评分卡（核心筛选逻辑）
 
@@ -235,7 +235,7 @@ description: "Rapidly scans the global (English) internet for what's trending ri
 - 首月收入区间：$X-$Y（注明依据与不确定性）
 
 ## 9. 下一步
-方案已就绪。确认后调用 `/vend` 进入生产 + 销售循环。
+方案已就绪。确认后交给下游（Wright 生产 → Buzz 引流 → Vendy 成交）。
 ```
 
 ## 重试与容错
