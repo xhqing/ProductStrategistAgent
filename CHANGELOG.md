@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+### 变更（README 徽章组合合规：移除 Last Commit 动态徽章 + 补 Version 徽章）
+
+- **为什么改**：commit skill 第 9l 步检测（2026-08-20）发现两版 README 徽章行含 `Last Commit` 动态徽章（URL 为 `github/last-commit/`，属规范禁用的 GitHub 动态时间徽章），且标准三枚（License / Version / Type）中缺 Version 徽章，与「标准徽章固定三枚、不含动态徽章」规范不符。
+- **改了什么**：README（EN/CN）徽章区删除 `Last Commit` 动态徽章行，新增 `Version-1.0.0` 静态徽章（版本号取自 VERSION 文件）；Visitors 访问量徽章（指向 xhqing traffic/badges/ 的 endpoint 形态）属 fleet 允许例外，保留不动。
+
 ### 变更（选品方案 v3.1 增补：蹭 DSH 热点——桥接内容钩子 + 跨 harness 模块 + 版本节点跟踪）
 
 - **为什么改**：用户问「最近 dsh 好像很热，要不要趁这个热点」，经查证（2026-08-20）：DSH = DeepSeek Harness，2026-08-13 发布并开源（MIT，developer preview），两天破 95k-112k GitHub stars（刷新 OpenClaw 纪录）、插件生态首日 100+ 次日破千、微博 / HN / Reddit / Medium / YouTube 多平台共振，热度属实且与目标人群（Claude Code / agent 组织讨论者）高度重合。决策：**只蹭流量层，不动产品本体**——① DSH 把「插件多到装不完」放大到极致，恰好强化本产品「组织 > 囤积」价值主张，是零产品成本的流量机会；② 不做 DSH 品牌付费产品（developer preview 官方已预告破坏性变更、社区对付费 DSH 内容的割韭菜警惕已拉满、插件商业化低客单价高维护成本与被动收入约束冲突）；③ 加一节跨 harness 内容作低成本增量。
