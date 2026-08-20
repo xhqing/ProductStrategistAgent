@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+### 变更（v3.1 报告交接方式落定：生产任务直接写入 Wright 项目 TODO.md）
+
+- **为什么改**：用户裁定（2026-08-20）——比起在报告里附交接清单、等用户开 Wright 会话时手动指路，把生产任务直接写进 ProductProducerAgent 的 TODO.md 更方便：Wright 会话开工时读自己的 TODO 即获得完整生产指令，用户无需当信使复述。原「artifacts/ 交接版 + §10 交接清单」方案作废（报告位置即唯一权威输入，`docs/product/` 路径直接写入任务）。
+- **改了什么**：ProductProducerAgent 项目根新建 `TODO.md`（绿色紧急度「流水线任务」：Fleet Playbook 生产任务全文——报告绝对路径、7 模块产品形态与文件夹结构、三个素材源仓库路径与各自用途、验收线「每个模板真实可用」、产物进 artifacts/ 且必带 `product_id: Fleet-Playbook-v3`、规格冲突回 Scout 会话提）与 `TODO-archive.md`（空初始化），其 CHANGELOG 同步记录。本项目不改报告（交接信息在 Wright 侧 TODO，职责反转：不是 Scout 报告里夹生产指令，而是 Wright TODO 指回 Scout 报告）。
+
 ### 变更（README 徽章组合合规：移除 Last Commit 动态徽章 + 补 Version 徽章）
 
 - **为什么改**：commit skill 第 9l 步检测（2026-08-20）发现两版 README 徽章行含 `Last Commit` 动态徽章（URL 为 `github/last-commit/`，属规范禁用的 GitHub 动态时间徽章），且标准三枚（License / Version / Type）中缺 Version 徽章，与「标准徽章固定三枚、不含动态徽章」规范不符。
