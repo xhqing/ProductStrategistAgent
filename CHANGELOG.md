@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+### 变更（报告两处 available-channels.md 历史叙述补现行位置括注；跨仓漏网引用一并修正）
+
+- **为什么改**：9/13 删除 `.claude/rules/` 并入 CLAUDE.md 时，报告 §3 / §4 两处「两次渠道踩坑 → available-channels.md」按「历史事实陈述」保留原样；但该报告是 Wright 生产模块 3 的活文档输入，读者会按文件名去仓里找现行版而落空。用户 2026-09-13 指示处理全部不一致，补括注指明现行位置，历史事实与新架构两头都不误导。另发现同批清理漏网的跨仓活引用：ProductProducerAgent TODO T1 素材源仍指向已删文件。
+- **改了什么**：`docs/product/hot-trend-ai-agent-money-system.md` §3「能力证明」与 §4 模块 3 两处各追加括注（「历史文件名，该规则现为本仓 CLAUDE.md『## 你的约束』章节，独立文件 2026-09-13 已并入」）；同步修正 ProductProducerAgent TODO T1 素材源为指向本仓 CLAUDE.md 对应章节（其 CHANGELOG 已另记）。
+
 ### 变更（规则文件并入 CLAUDE.md，删除 .claude/rules/ 目录）
 
 - **为什么改**：用户 2026-09-13 要求把 `.claude/rules/` 下的内容全部并入 CLAUDE.md 并删除该目录。全局规则已明确 `.claude/rules/` 没有按文件名自动加载的机制、文件进入上下文的唯一途径是进某个 CLAUDE.md，独立规则文件存在「引用漏加载」风险，并入后单文件自包含、不再依赖 @ 引用。
