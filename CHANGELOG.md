@@ -2,6 +2,18 @@
 
 ## [Unreleased]
 
+### 变更（v3.3 产品定位去 Claude Code 绑定：通称 AI agents，组织方法论跨 harness）
+
+- **为什么改**：用户 2026-09-14 指示「不要强调 Claude Code，其它 harness 也能用」。产品卖点本体是组织方法论（角色 / 契约 / 接力 / 沉淀），天然跨 harness；多底座市场已被验证（CC / Codex / Cursor / Gemini CLI / Copilot 均支持 skills，DSH 爆火证明插件生态在扩散），绑死 CC 等于把非 CC 用户挡在门外；与「国内 CC 口碑差、不能国内强调 CC」的用户判断同向。v3.1 模块 7 已埋跨 harness 伏笔，本次升格为产品定位原则。
+- **改了什么**（2026-09-14）：`docs/product/hot-trend-ai-agent-money-system.md`——① §0 新增「产品定位去 CC 绑定（v3.3）」块，固化执行边界「定位层去 CC、事实层留 CC、运营层降位蹭流量」；② 英文主标题 `20 Claude Code Agents` → `20 AI Agents`（定名块同步）；③ 关键词重排：主词改 `agent skills` / `AI agent team` / `how to organize AI agents`，CC 系词降长尾（注明蹭流量不作定位），hashtag `#ClaudeCode` 移末位；④ §5 主攻平台描述改写（旧逻辑「渠道与卖点关键词都用 CC」废弃，新逻辑「蹭标签流量 ≠ 产品自我定位」）；⑤ 教程 thread 文案两处 `How I turned Claude Code into a company` → `How I turned 20 AI agents into a company`；⑥ Payloadz 上架标签去 Claude Code；⑦ §3.5 主题一致性、§2 关键词行同步通称化；⑧ 模块 2 Role Templates 补各 harness 配置文件名映射（`CLAUDE.md` / `AGENTS.md` / `.cursorrules` 等，五段式结构同构）；⑨ 模块 7 从「一节前瞻内容」升格为贯穿标题 / 关键词 / 文案 / 标签的定位原则。
+- **边界**：事实层保留 CC——热点数据（多 harness 并列陈述）、付费锚点（CC 订阅价）、生产流程（本地 CC 实测）、素材源（CLAUDE.md 模板）、回复大号流量池列举；运营层 `#ClaudeCode` 标签与 CC 长尾搜索词保留但降位（流量真实存在）。产品名 The Agent Team Playbook 无 CC 字样、`product_id: Team-Playbook-v3` 均不变（定位微调非本体变化）。下游 ProductProducerAgent TODO 的 CLAUDE.md 引用均为素材源路径（事实层），无需同步。
+
+### 变更（v3.2 团队规模 14 → 20 全文同步：文案数字与仓库事实对齐）
+
+- **为什么改**：用户 2026-09-14 指出系统持续迭代、团队已从 14 个 agent 扩至 20 个（全局注册表三小组 + 直属岗位结构成型），报告通篇仍写 14。数字是卖点核心资产（「规模感由数字传达」）、且买家漏斗以「对照 GitHub 验证」为核心机制——文案数字与仓库事实不一致即信任折损（同 2026-08-21 fleet → team 改名逻辑）；产品未生产、营销未发，此刻同步成本最低。
+- **改了什么**（2026-09-14）：`docs/product/hot-trend-ai-agent-money-system.md`——① §0 新增「团队规模同步（v3.2）」块：数字维护规则（以全局注册表为准、扩员后同步、英文文案用精确数字不用「20+」）、叙事资产（14 → 20 且组织不乱是方法论有效的活证明，「grew from 14 to 20」可作内容钩子）、素材增量（三小组结构成为模块 1 / 4 新底料）；② 正文现行措辞 12 处 14 → 20（§0 本体描述、§1 证据、§3 过程证明、§4 模块 4 组织学 / 英文标题 / 封面视觉、§5 拆解帖与 DSH 桥接帖及英文首发文案、§7 风险）；③ 头部生成日期行标注 v3.2 增补。
+- **边界**：头部版本沿革行「v3 换产品本体：14-agent team」与同步块内「生成时为 14 个 / 14 人时代」属历史事实陈述，保留不改；product_id `Team-Playbook-v3` 不变（数字快照更新非产品本体变化，追溯链稳定）；下游 ProductProducerAgent TODO 无「14」引用（已 grep 确认），无需同步。
+
 ### 变更（报告两处 available-channels.md 历史叙述补现行位置括注；跨仓漏网引用一并修正）
 
 - **为什么改**：9/13 删除 `.claude/rules/` 并入 CLAUDE.md 时，报告 §3 / §4 两处「两次渠道踩坑 → available-channels.md」按「历史事实陈述」保留原样；但该报告是 Wright 生产模块 3 的活文档输入，读者会按文件名去仓里找现行版而落空。用户 2026-09-13 指示处理全部不一致，补括注指明现行位置，历史事实与新架构两头都不误导。另发现同批清理漏网的跨仓活引用：ProductProducerAgent TODO T1 素材源仍指向已删文件。
