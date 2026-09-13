@@ -2,6 +2,50 @@
 
 ## [Unreleased]
 
+### 变更（规则文件并入 CLAUDE.md，删除 .claude/rules/ 目录）
+
+- **为什么改**：用户 2026-09-13 要求把 `.claude/rules/` 下的内容全部并入 CLAUDE.md 并删除该目录。全局规则已明确 `.claude/rules/` 没有按文件名自动加载的机制、文件进入上下文的唯一途径是进某个 CLAUDE.md，独立规则文件存在「引用漏加载」风险，并入后单文件自包含、不再依赖 @ 引用。
+- **改了什么**（2026-09-13）：
+  - `CLAUDE.md`：「## 你的约束（见 .claude/rules/）」一节改为「## 你的约束」，原两行文件引用替换为两份规则全文（《聚焦被动收入》《可用销售与引流渠道》，内容逐字保留、仅列表格式排版）；
+  - 删除 `.claude/rules/`（含 `passive-income-only.md`、`available-channels.md`）；
+  - 同步清理残留活引用：`.claude/skills/hot-trend/SKILL.md` 2 处、`docs/product/hot-trend-ai-agent-money-system.md` 2 处，由「遵守 available-channels / passive-income-only 规则」改为「遵守 CLAUDE.md 渠道 / 被动收入约束」，避免指向已删文件的 dangling 引用。
+- **边界**：docs 报告中 2 处历史案例叙述（「两次踩坑 → available-channels.md」的沉淀故事）保留原样，属过去事实的陈述、不指向现行文件；CHANGELOG 历史条目中的文件名同样保留（历史记录不改）。本仓无子项目（超集同步不适用）。
+
+### 变更（CLAUDE.md 删去「由 Claude Code 自动加载」说明句）
+
+- **为什么改**：用户 2026-09-12 要求 CLAUDE.md 不再强调本文由 Claude Code 加载，团队全部项目的 CLAUDE.md 统一清理此类语句。
+- **改了什么**（2026-09-12）：`.claude/CLAUDE.md` 开头角色定位行删去句尾「本文件由 Claude Code 在每次会话开头自动加载。」，角色描述本身保留。
+
+### 变更（assets/logo.svg 副标题去中文）
+
+- **为什么改**：全局规则新增「Logo / 图标资产文字一律用英文」（2026-09-12 用户立，起因 Swing 仓库 logo 副标题混入中文被指出）：logo 是面向全球读者的视觉标识，中文受众已有 README_cn.md 双语通道；且 SVG 中文依赖查看环境的字体回退，渲染不可控。本次为按新规批量清理存量。
+- **改了什么**：`assets/logo.svg` 副标题「Product Strategist · 选品策略师」→「Product Strategist」。
+
+### 修复（TODO / MEMO 编号加粗脚本截断事故：批量脚本切片 bug 把条目正文截空，从多恢复源全量重建）
+
+- **为什么改**：上一条「全量补编号」执行时，第二步「编号加粗」脚本存在切片 bug（`m.group(0)[m.end(3)+1:]` 起点算错），把所有被匹配条目的正文截成空壳（只剩 `- [ ] **Tn** `），共波及 1 个文件 2 条。发现后立即启动恢复（无 Time Machine / APFS 快照可用）。
+- **改了什么**：多恢复源重建并回写——① git 暂存区 / HEAD 旧版（MEMO.md）；② Claude Code file-history 检查点（Edit 前快照，MEMO.md（转写重放重建））；③ 会话转写重放（按时间序重放历史 Edit / heredoc 写入，补齐检查点之后的新增条目，如 DayTradingAgent 今晚新增的 5 条活跃待办与「2026-08-21 批量处理」4 条归档）。重建后统一按规则加粗编号（**Tn** / **Mn**），DayTradingAgent 连续 T1~T115、DayTradingAgent-win 连续 T1~T44，正文经抽样与恢复源逐字一致。受损壳快照留存本机 tmp（/tmp/todo-damage-backup/）。
+- **边界**：恢复目标是「截断事故前的状态」（即编号未加粗、但已编号的正文完整版）；编号加粗为规则要求的新格式。git 未提交的其它改动不受影响。
+
+### 变更（TODO / MEMO 条目全量补编号：按新立待办编号规则一次性补齐存量）
+
+- **为什么改**：2026-08-21 用户新立全局规则「每条待办必须有唯一待办编号」（格式 T+序号 / M+序号，如 T11 / M11，连写、项目内递增、永不复用、归档保留），并指示存量待办与归档待办全部补上编号——编号用于用户与 AI 针对性沟通（「T11 处理了吗」），避免复述长正文。
+- **改了什么**：MEMO.md 2 条备忘补编号（M1~M2）；TODO 两文件当前 0 条目，无需处理。正文内容零改动（只插入编号，不改写、不重排、时间戳不变）；编号顺序 = 活跃文件在前、归档在后、文件内按行序。
+
+### 变更（产品定名 The Agent Team Playbook：v3.1 报告改名 + product_id 追溯链同步，趁未生产一次改净）
+
+- **为什么改**：待产旗舰产品原拟名「Fleet Playbook」（`product_id: Fleet-Playbook-v3`）与刚完成的 fleet → team 全量措辞统一（2026-08-21）冲突——产品漏斗以真实仓库为证据（X 帖晒架构图 → bio 挂仓库 → 买家对照 GitHub 各仓 README），各仓已统一自称 team，产品名再叫 Fleet 会把两套自称带回买家视角；且「team playbook」是英语地道搭配（源自球队战术手册）、「fleet playbook」是混搭，产品价值主张（"a Company That Runs Itself"）也是组织 / 公司隐喻而非舰队隐喻。用户 2026-08-21 裁定立即改名；产品尚未生产（仍在 Wright TODO），此刻改名成本最低、零外部影响。
+- **改了什么**：
+  - `docs/product/hot-trend-ai-agent-money-system.md`（v3.1 报告，17 处）：标题「Agent Fleet Playbook（智能体军团作战手册）」→「Agent Team Playbook（智能体团队作战手册）」；§0 新增「产品名定名（2026-08-21）」决策块（定名 + 三条理由 + 旧名弃用说明）；§1/§4/§5/§7 正文 fleet → team（含 14-agent fleet → team、模块 1「The Fleet Method」→「The Team Method」、案例走读与封面视觉的 fleet 措辞、教程 thread 文案 `contracts → a fleet` → `a team`、「军团」→「团队」）；成品样例文件夹树 `agent-fleet-playbook/` → `agent-team-playbook/`、`01-fleet-method/` → `01-team-method/`、`fleet-diagram.svg` → `team-diagram.svg`；英文标题 `The Agent Fleet Playbook` → `The Agent Team Playbook`；§9 `product_id: Fleet-Playbook-v3` → `Team-Playbook-v3`（括注旧值留痕）。
+  - `MEMO.md`：DSH 跟踪条目「强化 Fleet Playbook 卖点」→「Team Playbook」，时间戳同步更新。
+  - **下游追溯链同步**：ProductProducerAgent `TODO.md` 生产任务条目（产品名、product_id、报告定位说明）同步改，其 CHANGELOG 已另记——保证 Echo 归因链（product_id）不断。
+- **边界**：产品未生产、未上架、无营销内容已发布（X 帖未发、Payloadz 未上），改名零外部迁移成本；报告内保留的「Fleet」字样仅存在于定名决策块与 product_id 括注中的历史引用（说明旧名为何弃用），非现行措辞。
+
+### 变更（措辞统一 fleet → team：`.commit-cache.md` 缓存标记跟随全局统一）
+
+- **为什么改**：用户 2026-08-16 已把 xhqing 主页 README 的自称从「舰队 / fleet」改为「团队 / team」，全局元规范与 commit skill 已同步改（2026-08-21，记录见 CapabilityManagerAgent CHANGELOG），本仓 `.commit-cache.md` 缓存标记里的「fleet Visitors 徽章」是同一批存量；2026-08-21 用户裁定全量存量一次清零、统一为团队 / team。
+- **改了什么**：`.commit-cache.md` 1 处缓存标记「fleet Visitors 徽章属允许例外」→「团队 Visitors 徽章属允许例外」。仅改措辞，检测逻辑、徽章均不变。（`MEMO.md` 里的「Fleet Playbook」是待产产品的 `product_id` 追溯标识（`Fleet-Playbook-v3`），非自称措辞，不改。）
+
 ### 变更（v3.1 报告交接方式落定：生产任务直接写入 Wright 项目 TODO.md）
 
 - **为什么改**：用户裁定（2026-08-20）——比起在报告里附交接清单、等用户开 Wright 会话时手动指路，把生产任务直接写进 ProductProducerAgent 的 TODO.md 更方便：Wright 会话开工时读自己的 TODO 即获得完整生产指令，用户无需当信使复述。原「artifacts/ 交接版 + §10 交接清单」方案作废（报告位置即唯一权威输入，`docs/product/` 路径直接写入任务）。

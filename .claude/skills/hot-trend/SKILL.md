@@ -30,7 +30,7 @@ description: "Rapidly scans the global (English) internet for what's trending ri
 3. **必须可落地**。方案要能回答：用什么形态、几天能产出、在哪上架、流量从哪来、定价锚在哪、版权合规有无硬伤。任何一环答不上来，这个热点就不算合格，继续找。
 4. **时效窗口要够**。只蹭「几小时就过气」的梗毫无意义，必须保证有足够长（≥2 周）的销售窗口。
 5. **必须与已有数字商品差异化**。启动时先盘点 `docs/product/` 下已有的选品方案与成品（`hot-trend-*.md` 及各类数字产品），列出已覆盖的领域 / 品类清单；本次锁定的热点**领域必须与这些不同**，候选阶段就主动排除已覆盖领域，避免反复造同类产品。
-6. **必须给出引流 + 销售方案**。光有热点和产品不够，方案必须同时包含**引流打法**（目标关键词、主攻平台、引流钩子、首发内容）与**销售打法**（上架渠道、定价与优惠券、收款与提现路径）。渠道选择遵守 `.claude/rules/available-channels.md`：Payloadz + PayPal 主链路，小红书国内，**Gumroad / TikTok 不可用**。
+6. **必须给出引流 + 销售方案**。光有热点和产品不够，方案必须同时包含**引流打法**（目标关键词、主攻平台、引流钩子、首发内容）与**销售打法**（上架渠道、定价与优惠券、收款与提现路径）。渠道选择遵守 CLAUDE.md「可用销售与引流渠道」约束：Payloadz + PayPal 主链路，小红书国内，**Gumroad / TikTok 不可用**。
 
 ## 目标市场
 
@@ -133,7 +133,7 @@ description: "Rapidly scans the global (English) internet for what's trending ri
 | **① 热度上升斜率** Trend Velocity | ×2.0 | 趋势曲线陡峭上升，跨 ≥3 个平台共振 | ≥5 |
 | **② 数字产品适配度** Product Fit | ×1.5 | 天然能做成模板 / 提示词包 / 指南 / 工具 / 素材库 | ≥6 |
 | **③ 流量潜力** Traffic Potential | ×1.5 | 有高搜索量主词 + 长尾词，平台算法友好，有明确可蹭 hashtag | ≥5 |
-| **④ 付费意愿** Willingness to Pay | ×2.0 | 对应强痛点（赚钱 / 省时 / 求职 / 学技能），有同类付费产品佐证 | ≥6 |
+| **④ 付费意愿** Willingness to Pay | ×2.0 | 对应强痛点（赚钱 / 省时 / 职业发展 / 学技能），有同类付费产品佐证 | ≥6 |
 | **⑤ 可行性与时效** Feasibility & Window | ×2.0 | ≤3 天可产出高质量成品；无版权 / 合规硬伤；窗口 ≥2 周；渠道无门槛上架 | ≥7 |
 
 > 加权最大的三块是「付费意愿」「可行性与时效」「热度斜率」——这正是「能卖得动、做得出来、踩得准」三件事。纯新闻事件、纯娱乐梗通常在②④上得分很低，自然被淘汰。
@@ -206,7 +206,7 @@ description: "Rapidly scans the global (English) internet for what's trending ri
 ## 5. 引流与销售方案
 **引流**：
 - 目标关键词（SEO / 搜索）：主词 + 长尾
-- 主攻平台（1-2 个）：X / Reddit / Instagram / YouTube / Product Hunt（遵守 available-channels 规则，TikTok 不可用）
+- 主攻平台（1-2 个）：X / Reddit / Instagram / YouTube / Product Hunt（遵守 CLAUDE.md 渠道约束，TikTok 不可用）
 - 引流钩子：<用什么内容 / 什么角度切入，为什么算法和用户会买单>
 - 首发 3 条内容草稿：<标题 + 平台>
 
