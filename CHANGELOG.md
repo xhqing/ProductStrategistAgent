@@ -2,6 +2,17 @@
 
 ## [Unreleased]
 
+### 变更（麻将报告交接 Wright：T4 已写入其 TODO.md，两链路产品一起生产）
+
+- **为什么改**：用户裁定「两条链路产品一起生产」，按流水线交接机制（生产任务直接写入 Wright 项目 TODO.md，Wright 会话开工读 TODO 即获完整指令），本报告进入生产交接。
+- **改了什么**：ProductProducerAgent `TODO.md` 新增 T4（本仓报告 `artifacts/mahjong-us-boom-report.md` 为唯一权威输入）——英文主品 `product_am_mahjong_playbook`（Playbook + 聚会主办包，$9.99 锚）+ 中文版 `product_am_mahjong_playbook_cn`（《美国麻将玩法入门》，「会打中国麻将的人学美国麻将」对照角度）一起出；NMJL 年度卡牌型版权红线、「不做又一张 cheat sheet」差异化要求、双语验收线（英文版 30 分钟可上手 / 中文版 20 分钟理解差异）、交付位置（其仓 artifacts/mahjong/）均写入；候选 B（双规则对照手册）明确不在本任务、等验证付费后再派；其 CHANGELOG 已另记。本仓报告状态行同步改为「已交接生产」。
+
+### 新增（机会研判报告：麻将在美国的热潮与数字产品机会）
+
+- **为什么改**：用户听说「中国麻将在美国火了」并设想两个产品方向（麻将玩法说明书成册、线上麻将小游戏），要求验证真假并研判可行性。经三轮联网调研（热度数据多源交叉、Etsy/Amazon/NMJL 竞品与定价锚、线上麻将游戏市场格局）后产出《机会研判报告》。
+- **改了什么**：新建 `artifacts/mahjong-us-boom-report.md`（trend_id: trend_mahjong_us_boom；product_id: product_am_mahjong_playbook / product_cn_am_dual_rules）。核心结论：① 热点为真且处高位加速期（Yelp 俱乐部搜索 +4,467%、全美 1,026 家俱乐部）；② 关键事实——美国主流玩法是 American Mahjong（NMJL 年度卡规则）而非中国麻将，直接翻译中国玩法大全错位主流需求；③ 主推候选 A「American Mahjong 新手 Playbook + 聚会主办包」（$9.99，host 角度为 Etsy 速查表红海中的空档）、候选 B「中美双规则对照手册」作第二本；④ 线上小游戏被否决（违背被动收入硬约束 + Vita/Mahjong Soul 等 entrenched 红海）；⑤ 合规红线：NMJL 年度卡牌型有版权不得复制，产品定位为「教你读官方卡」引导购买。
+- **后续修订（2026-07，同日）**：用户质疑「为什么引流用小红书，小红书美国人很少」——原报告 §7 把海外主渠道与中文补充渠道混在同一节、分层不醒目，易被误读为「用小红书引流美国人」。已重构 §7 为两条链路：链路 1（主）美国主流用户 → X/Instagram/YouTube 引流 + Payloadz 成交；链路 2（可选）中文用户（在美华人/留学生，非美国人）→ 小红书卖中文版，并补一轮检索验证（中文「美国麻将」内容生态已自发出现：meiguomajang.com.cn 等中文指南站、网易报道），证据清单同步补第 13 条。
+
 ### 变更（Git 漫画书生产任务交接 Wright：T2 已写入其 TODO.md，流水线进入生产环节）
 
 - **为什么改**：用户裁定「让 Wright 开干」，按 2026-08-20 定下的交接机制（生产任务直接写入 Wright 项目 TODO.md，Wright 会话开工读 TODO 即获完整指令，用户无需当信使），本报告进入生产交接。
