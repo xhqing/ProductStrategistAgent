@@ -8,6 +8,12 @@
 
 ## [Unreleased]
 
+### 变更（移除访问量徽章，配合停用集中式流量采集）
+
+- **为什么改**：用户 2026-11-04 决定停用 xhqing 仓库的集中式访问量采集，同时不再在各仓库 README 展示访问量徽章。徽章的数据源必须由采集任务每天刷新，采集停掉之后徽章会冻结在旧值，而徽章文案写的是「Visits/day (14d)」——数字不再更新却仍显示成实时数据，留着反而误导读者。
+- **改了什么**：`README.md` / `README_cn.md` 顶部徽章区删除那一枚 shields.io 访问量徽章（整行删除，数据源 `https://raw.githubusercontent.com/xhqing/xhqing/main/traffic/badges/<仓库名>.json`）；License / Version / Type 等其它徽章与正文一个字未动。
+- **回归检查**：只删这一整行，徽章区所在的 `<p align="center">` / `<div>` 结构与相邻徽章不受影响；README 其余内容零改动。
+
 ### 变更（新增 AGENTS.md 软链接：pi 侧统一入口，指向 CLAUDE.md）
 
 - **为什么改**：用户 2026-10-17 修订「智能体专属文件归属」规则（统一为「Agent 进驻子项目」网络，取代 2026-10-12 的旧规；规则全文见全局 `~/.claude/CLAUDE.md`「团队结构参考」节与 `~/.claude/docs/agents-registry.md`「智能体专属文件归属与子项目映射（2026-10-17 修订）」节），各 Agent 项目统一以 `AGENTS.md` 作为 pi 侧入口；Kit（ExecutiveAssistantAgent）按此为本项目补上入口软链接，本仓需提交该改动并记录。
