@@ -39,6 +39,6 @@
 
 版权所有 (c) 2026 xhqing · 以 [MIT 许可证](LICENSE.md) 发布。
 
-**署名方式**：引用本项目时请署名 **All Contributors**，保留版权声明并注明来源（本仓库）。
+**署名方式**：引用本项目时请署名 **xhqing**，保留版权声明并注明来源（本仓库）。
 
 **项目地址**：[ProductStrategistAgent](https://github.com/xhqing/ProductStrategistAgent)
