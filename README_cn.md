@@ -37,7 +37,7 @@
 
 ## 版权与署名
 
-版权所有 (c) 2026 All Contributors · 以 [MIT 许可证](LICENSE.md) 发布。
+版权所有 (c) 2026 xhqing · 以 [MIT 许可证](LICENSE.md) 发布。
 
 **署名方式**：引用本项目时请署名 **All Contributors**，保留版权声明并注明来源（本仓库）。
 
